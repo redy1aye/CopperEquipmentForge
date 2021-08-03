@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[37,)"
+license="MIT"
+
+[[mods]]
+modId="copperequipment"
+version="0.1"
+displayName="Copper Equipment"
+
+logoFile="copperequipmentlogo.png"
+authors="Redy1aye"
+description='''
+Homepage: https://www.curseforge.com/minecraft/mc-mods/copper-equipment-fabric
+
+Enjoy your copper armor and tools!'''
+
+[[dependencies.copperequipment]]
+    modId="forge"
+    mandatory=true
+    versionRange="[37,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.copperequipment]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.17.1,1.18)"
+    ordering="NONE"
+    side="BOTH"
