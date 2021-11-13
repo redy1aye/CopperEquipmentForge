@@ -8,8 +8,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 @MethodsReturnNonnullByDefault
-public enum CopperTools implements Tier {
-    COPPER_TOOL(2, 176, 6, 2, 17, () -> Ingredient.of(Items.COPPER_INGOT));
+public enum WaxedCopperTools implements Tier {
+    WAXED_COPPER_TOOL(2, 176, 6, 2, 17, () -> Ingredient.of(Items.COPPER_INGOT));
 
     private final Ingredient repairmaterial;
     private final int enchantability;
@@ -18,7 +18,7 @@ public enum CopperTools implements Tier {
     private final int maxUses;
     private final int harvestLevel;
 
-    CopperTools(int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantability, Supplier<Ingredient> repairmaterial) {
+    WaxedCopperTools(int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantability, Supplier<Ingredient> repairmaterial) {
         this.harvestLevel = harvestLevel;
         this.maxUses = maxUses;
         this.efficiency = efficiency;

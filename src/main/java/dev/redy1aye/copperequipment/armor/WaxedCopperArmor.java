@@ -9,8 +9,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Supplier;
 
-public enum CopperArmor implements ArmorMaterial {
-    COPPER_ARMOR("copper", 12, SoundEvents.ARMOR_EQUIP_IRON, 0, 0,
+public enum WaxedCopperArmor implements ArmorMaterial {
+    WAXED_COPPER_ARMOR("waxed_copper", 12, SoundEvents.ARMOR_EQUIP_IRON, 0, 0,
             () -> Ingredient.of(Items.COPPER_INGOT));
 
     private static final int[] Durability = {134, 179, 198, 112};
@@ -23,8 +23,8 @@ public enum CopperArmor implements ArmorMaterial {
     private final float knockbackResistance;
     private final Ingredient repairIngredient;
 
-    CopperArmor(String name, int enchantability,
-                        SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
+    WaxedCopperArmor(String name, int enchantability,
+                     SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
         this.name = name;
         this.enchantability = enchantability;
         this.equipSound = equipSound;
@@ -61,7 +61,7 @@ public enum CopperArmor implements ArmorMaterial {
 
     @Override
     public String getName() {
-        return "copper";
+        return "waxed_copper";
     }
 
     @Override

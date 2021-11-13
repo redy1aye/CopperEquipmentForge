@@ -10,13 +10,13 @@ import org.apache.logging.log4j.Logger;
 
 @Mod("copperequipment")
 public class CopperEquipment {
-
-    public static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "copperequipment";
-    
+
     public CopperEquipment() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         MinecraftForge.EVENT_BUS.register(this);
-        Register.ITEMS.register(bus);
+        Items.ITEMS.register(bus);
+        Blocks.BLOCKS.register(bus);
     }
 }
