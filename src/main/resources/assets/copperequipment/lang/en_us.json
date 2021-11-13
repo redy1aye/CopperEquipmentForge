@@ -4,9 +4,31 @@
   "item.copperequipment.copper_axe": "Copper Axe",
   "item.copperequipment.copper_shovel": "Copper Shovel",
   "item.copperequipment.copper_hoe": "Copper Hoe",
-  
+  "item.copperequipment.copper_shears": "Copper Shears",
+
   "item.copperequipment.copper_helmet": "Copper Helmet",
   "item.copperequipment.copper_chestplate": "Copper Chestplate",
-  "item.copperequipment.copper_leggings": "Copper Leggins",
-  "item.copperequipment.copper_boots": "Copper Boots"
+  "item.copperequipment.copper_leggings": "Copper Leggings",
+  "item.copperequipment.copper_boots": "Copper Boots",
+  "item.copperequipment.copper_horse_armor": "Copper Horse Armor",
+
+    "item.copperequipment.waxed_copper_sword": "Waxed Copper Sword",
+    "item.copperequipment.waxed_copper_pickaxe": "Waxed Copper Pickaxe",
+    "item.copperequipment.waxed_copper_axe": "Waxed Copper Axe",
+    "item.copperequipment.waxed_copper_shovel": "Waxed Copper Shovel",
+    "item.copperequipment.waxed_copper_hoe": "Waxed Copper Hoe",
+    "item.copperequipment.waxed_copper_shears": "Waxed Copper Shears",
+
+    "item.copperequipment.waxed_copper_helmet": "Waxed Copper Helmet",
+    "item.copperequipment.waxed_copper_chestplate": "Waxed Copper Chestplate",
+    "item.copperequipment.waxed_copper_leggings": "Waxed Copper Leggings",
+    "item.copperequipment.waxed_copper_boots": "Waxed Copper Boots",
+    "item.copperequipment.waxed_copper_horse_armor": "Waxed Copper Horse Armor",
+
+
+  "block.copperequipment.copper_button": "Copper Button",
+  "block.copperequipment.copper_pressure_plate": "Copper Pressure Plate",
+
+    "block.copperequipment.waxed_copper_button": "Waxed Copper Button",
+    "block.copperequipment.waxed_copper_pressure_plate": "Waxed Copper Pressure Plate"
 }

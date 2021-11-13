@@ -4,15 +4,11 @@ license="MIT"
 
 [[mods]]
 modId="copperequipment"
-version="0.1"
+version="1.0"
 displayName="Copper Equipment"
-
-logoFile="copperequipmentlogo.png"
+logoFile="copperequipment-forge-logo.png"
 authors="Redy1aye"
-description='''
-Homepage: https://www.curseforge.com/minecraft/mc-mods/copper-equipment-fabric
-
-Enjoy your copper armor and tools!'''
+description="Enjoy your copper armor and tools!"
 
 [[dependencies.copperequipment]]
     modId="forge"
