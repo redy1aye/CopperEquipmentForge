@@ -7,18 +7,41 @@ import dev.redy1aye.copperequipment.tools.WaxedCopperTools;
 
 import net.minecraft.world.item.*;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraftforge.fmllegacy.RegistryObject;
+
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 public class Items {
+
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS,
             CopperEquipment.MOD_ID);
 
+    static int CopperSwordDamage = Config.CopperSwordDamage.get();
+    static float CopperSwordAttackSpeed = Config.CopperSwordAttackSpeed.get();
+
+    static int CopperAxeDamage = Config.CopperAxeDamage.get();
+    static float CopperAxeAttackSpeed = Config.CopperAxeAttackSpeed.get();
+
+
+    static int WaxedCopperSwordDamage = Config.WaxedCopperSwordDamage.get();
+    static float WaxedCopperSwordAttackSpeed = Config.WaxedCopperSwordAttackSpeed.get();
+
+    static int WaxedCopperAxeDamage = Config.WaxedCopperAxeDamage.get();
+    static float WaxedCopperAxeAttackSpeed = Config.WaxedCopperAxeAttackSpeed.get();
+
+
+
+    public static final RegistryObject<Item> COMPRESSED_COPPER = ITEMS.register("compressed_copper",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+
+    public static final RegistryObject<Item> COPPER_NUGGET = ITEMS.register("copper_nugget",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+
 
     public static final RegistryObject<Item> COPPER_SWORD = ITEMS.register("copper_sword",
-            () -> new SwordItem(CopperTools.COPPER_TOOL, 3, -2.3f,
+            () -> new SwordItem(CopperTools.COPPER_TOOL, CopperSwordDamage, CopperSwordAttackSpeed,
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
     public static final RegistryObject<Item> COPPER_SHOVEL = ITEMS.register("copper_shovel",
@@ -30,16 +53,15 @@ public class Items {
                     new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
     public static final RegistryObject<Item> COPPER_AXE = ITEMS.register("copper_axe",
-            () -> new AxeItem(CopperTools.COPPER_TOOL, 6, -3.1f,
+            () -> new AxeItem(CopperTools.COPPER_TOOL, CopperAxeDamage, CopperAxeAttackSpeed,
                     new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
     public static final RegistryObject<Item> COPPER_HOE = ITEMS.register("copper_hoe",
             () -> new HoeItem(CopperTools.COPPER_TOOL, -2, -0.5f,
                     new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
-
-      public static final RegistryObject<Item> COPPER_SHEARS = ITEMS.register("copper_shears",
-             () -> new ShearsItem(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TOOLS).durability(CopperTools.COPPER_TOOL.getUses())));
+    public static final RegistryObject<Item> COPPER_SHEARS = ITEMS.register("copper_shears",
+            () -> new ShearsItem(new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_TOOLS).durability(CopperTools.COPPER_TOOL.getUses())));
 
 
     public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet",
@@ -58,13 +80,16 @@ public class Items {
             () -> new ArmorItem(CopperArmor.COPPER_ARMOR, EquipmentSlot.FEET,
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
-     /* public static final RegistryObject<Item> COPPER_HORSE_ARMOR = ITEMS.register("waxed_copper_helmet",
-             () -> new HorseArmorItem(6, "copper",
-                     new Item.Properties().tab(CreativeModeTab.TAB_MISC))); */
 
-    // Waxed Copper
+    public static final RegistryObject<Item> COMPRESSED_WAXED_COPPER = ITEMS.register("compressed_waxed_copper",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+
+    public static final RegistryObject<Item> WAXED_COPPER_NUGGET = ITEMS.register("waxed_copper_nugget",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+
+
     public static final RegistryObject<Item> WAXED_COPPER_SWORD = ITEMS.register("waxed_copper_sword",
-            () -> new SwordItem(WaxedCopperTools.WAXED_COPPER_TOOL, 3, -2.3f,
+            () -> new SwordItem(WaxedCopperTools.WAXED_COPPER_TOOL, WaxedCopperSwordDamage, WaxedCopperSwordAttackSpeed,
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
 
     public static final RegistryObject<Item> WAXED_COPPER_SHOVEL = ITEMS.register("waxed_copper_shovel",
@@ -76,7 +101,7 @@ public class Items {
                     new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
     public static final RegistryObject<Item> WAXED_COPPER_AXE = ITEMS.register("waxed_copper_axe",
-            () -> new AxeItem(WaxedCopperTools.WAXED_COPPER_TOOL, 6, -3.1f,
+            () -> new AxeItem(WaxedCopperTools.WAXED_COPPER_TOOL, WaxedCopperAxeDamage, WaxedCopperAxeAttackSpeed,
                     new Item.Properties().tab(CreativeModeTab.TAB_TOOLS)));
 
     public static final RegistryObject<Item> WAXED_COPPER_HOE = ITEMS.register("waxed_copper_hoe",
@@ -99,4 +124,8 @@ public class Items {
     public static final RegistryObject<Item> WAXED_COPPER_BOOTS = ITEMS.register("waxed_copper_boots",
             () -> new ArmorItem(WaxedCopperArmor.WAXED_COPPER_ARMOR, EquipmentSlot.FEET,
                     new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)));
+
+    public static final RegistryObject<Item> COPPER_HORSE_ARMOR = ITEMS.register("copper_horse_armor",
+            () -> new HorseArmorItem(6, "copper",
+                    new Item.Properties().tab(CreativeModeTab.TAB_MISC).stacksTo(1)));
 }

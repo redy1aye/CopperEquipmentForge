@@ -1,34 +1,22 @@
 package dev.redy1aye.copperequipment.tools;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
+import dev.redy1aye.copperequipment.Config;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import java.util.function.Supplier;
 
-@MethodsReturnNonnullByDefault
-public enum CopperTools implements Tier {
-    COPPER_TOOL(2, 176, 6, 2, 17, () -> Ingredient.of(Items.COPPER_INGOT));
+public class CopperTools implements Tier {
 
-    private final Ingredient repairmaterial;
-    private final int enchantability;
-    private final float attackDamage;
-    private final float efficiency;
-    private final int maxUses;
-    private final int harvestLevel;
+    public static final Tier COPPER_TOOL = new CopperTools();
 
-    CopperTools(int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantability, Supplier<Ingredient> repairmaterial) {
-        this.harvestLevel = harvestLevel;
-        this.maxUses = maxUses;
-        this.efficiency = efficiency;
-        this.attackDamage = attackDamage;
-        this.enchantability = enchantability;
-        this.repairmaterial = repairmaterial.get(); }
+    static final int CopperToolsDurability = Config.CopperToolsDurability.get();
+    static final int CopperToolsMiningLevel = Config.CopperToolsMiningLevel.get();
+
 
     @Override
     public int getUses() {
-        return 176;
+        return CopperToolsDurability;
     }
 
     @Override
@@ -38,12 +26,12 @@ public enum CopperTools implements Tier {
 
     @Override
     public float getAttackDamageBonus() {
-        return 2;
+        return -1;
     }
 
     @Override
     public int getLevel() {
-        return 2;
+        return CopperToolsMiningLevel;
     }
 
     @Override

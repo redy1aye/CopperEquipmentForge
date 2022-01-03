@@ -1,5 +1,6 @@
 package dev.redy1aye.copperequipment.armor;
 
+import dev.redy1aye.copperequipment.Config;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -7,32 +8,24 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import java.util.function.Supplier;
 
-public enum CopperArmor implements ArmorMaterial {
-    COPPER_ARMOR("copper", 12, SoundEvents.ARMOR_EQUIP_IRON, 0, 0,
-            () -> Ingredient.of(Items.COPPER_INGOT));
+public class CopperArmor implements ArmorMaterial
+{
+    static int CopperBootsDurability = Config.CopperBootsDurability.get();
+    static int CopperLeggingsDurability = Config.CopperLeggingsDurability.get();
+    static int CopperChestplateDurability = Config.CopperChestplateDurability.get();
+    static int CopperHelmetDurability = Config.CopperHelmetDurability.get();
 
-    private static final int[] Durability = {134, 179, 198, 112};
-    private static final int[] Protection = {2, 5, 6, 3};
+    static int CopperBootsProtection = Config.CopperBootsProtection.get();
+    static int CopperLeggingsProtection = Config.CopperLeggingsProtection.get();
+    static int CopperChestplateProtection = Config.CopperChestplateProtection.get();
+    static int CopperHelmetProtection = Config.CopperHelmetProtection.get();
 
-    private final String name;
-    private final int enchantability;
-    private final SoundEvent equipSound;
-    private final float toughness;
-    private final float knockbackResistance;
-    private final Ingredient repairIngredient;
+    public static final ArmorMaterial COPPER_ARMOR = new CopperArmor();
 
-    CopperArmor(String name, int enchantability,
-                        SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
-        this.name = name;
-        this.enchantability = enchantability;
-        this.equipSound = equipSound;
-        this.toughness = toughness;
-        this.knockbackResistance = knockbackResistance;
-        this.repairIngredient = repairIngredient.get();
+    private static final int[] Durability = new int[] {CopperBootsDurability, CopperLeggingsDurability, CopperChestplateDurability, CopperHelmetDurability};
+    private static final int[] Protection = new int[] {CopperBootsProtection, CopperLeggingsProtection, CopperChestplateProtection, CopperHelmetProtection};
 
-    }
 
     @Override
     public int getDurabilityForSlot(EquipmentSlot slot) {
@@ -41,7 +34,7 @@ public enum CopperArmor implements ArmorMaterial {
 
     @Override
     public int getDefenseForSlot(EquipmentSlot slot) {
-        return this.Protection[slot.getIndex()];
+        return Protection[slot.getIndex()];
     }
 
     @Override
