@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:copper_ingot",
+    "copperequipment:compressed_copper",
+    "copperequipment:compressed_waxed_copper"
+  ]
+}

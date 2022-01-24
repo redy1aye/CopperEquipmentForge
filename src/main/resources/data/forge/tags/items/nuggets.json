@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:nuggets/copper",
+    "#forge:nuggets/waxed_copper"
+  ]
+}
