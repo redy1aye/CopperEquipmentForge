@@ -1,22 +1,22 @@
 package dev.redy1aye.copperequipment.tools;
 
-import dev.redy1aye.copperequipment.Config;
-import net.minecraft.world.item.Items;
+import dev.redy1aye.copperequipment.misc.Config;
+import dev.redy1aye.copperequipment.Items;
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
-
+@MethodsReturnNonnullByDefault
 public class CopperTools implements Tier {
 
     public static final Tier COPPER_TOOL = new CopperTools();
 
-    static final int CopperToolsDurability = Config.CopperToolsDurability.get();
-    static final int CopperToolsMiningLevel = Config.CopperToolsMiningLevel.get();
-
+    /* static int CopperToolsDurability = Config.CopperToolsDurability.get();
+    static int CopperToolsMiningLevel = Config.CopperToolsMiningLevel.get(); */
 
     @Override
     public int getUses() {
-        return CopperToolsDurability;
+        return 120;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class CopperTools implements Tier {
 
     @Override
     public int getLevel() {
-        return CopperToolsMiningLevel;
+        return 2;
     }
 
     @Override
@@ -41,6 +41,6 @@ public class CopperTools implements Tier {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.of(Items.COPPER_INGOT);
+        return Ingredient.of(Items.COMPRESSED_COPPER.get());
     }
 }

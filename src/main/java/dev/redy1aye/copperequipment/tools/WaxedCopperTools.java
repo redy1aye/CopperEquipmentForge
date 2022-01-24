@@ -1,46 +1,46 @@
 package dev.redy1aye.copperequipment.tools;
 
-import dev.redy1aye.copperequipment.Config;
+import dev.redy1aye.copperequipment.misc.Config;
+import dev.redy1aye.copperequipment.Items;
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
 @MethodsReturnNonnullByDefault
 public class WaxedCopperTools implements Tier {
 
-    static final int CopperToolsDurability = Config.CopperToolsDurability.get();
-    static final int CopperToolsMiningLevel = Config.CopperToolsMiningLevel.get();
-
     public static final Tier WAXED_COPPER_TOOL = new WaxedCopperTools();
+
+    /* static int WaxedCopperToolsDurability = Config.WaxedCopperToolsDurability.get();
+    static int WaxedCopperToolsMiningLevel = Config.WaxedCopperToolsMiningLevel.get(); */
 
     @Override
     public int getUses() {
-        return CopperToolsDurability;
+        return 420;
     }
 
     @Override
     public float getSpeed() {
-        return 6;
+        return 4;
     }
 
     @Override
     public float getAttackDamageBonus() {
-        return 2;
+        return -1;
     }
 
     @Override
     public int getLevel() {
-        return CopperToolsMiningLevel;
+        return 2;
     }
 
     @Override
     public int getEnchantmentValue() {
-        return 17;
+        return 18;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.of(Items.COPPER_INGOT);
+        return Ingredient.of(Items.COMPRESSED_WAXED_COPPER.get());
     }
 }

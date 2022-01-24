@@ -1,5 +1,6 @@
 package dev.redy1aye.copperequipment;
 
+import dev.redy1aye.copperequipment.misc.CreativeTab;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -37,7 +38,7 @@ public class Blocks {
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
         Items.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+                new Item.Properties().tab(CreativeTab.TAB_COPPER)));
     }
 
     public static void register(IEventBus eventBus) {

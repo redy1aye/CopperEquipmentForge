@@ -1,5 +1,7 @@
 package dev.redy1aye.copperequipment;
 
+import dev.redy1aye.copperequipment.misc.Config;
+
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -22,7 +24,7 @@ public class CopperEquipment {
         Items.ITEMS.register(bus);
         Blocks.BLOCKS.register(bus);
 
-        ModLoadingContext.get().registerConfig(Type.COMMON, Config.CE_CFG, "CopperEquipmentMod-Config.toml");
+        // ModLoadingContext.get().registerConfig(Type.COMMON, Config.CE_CFG, "copperequipment-common.toml");
         MinecraftForge.EVENT_BUS.register(this);
     }
 }
