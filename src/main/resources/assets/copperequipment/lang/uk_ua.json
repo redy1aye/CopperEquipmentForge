@@ -1,7 +1,12 @@
 {
+  "item.copperequipment.compressed_copper": "Стиснута мідь",
+  "item.copperequipment.copper_nugget": "Мідний самородок",
+    "item.copperequipment.compressed_waxed_copper": "Вощена стиснута мідь",
+    "item.copperequipment.waxed_copper_nugget": "Вощений мідний самородок",
+  
   "item.copperequipment.copper_sword": "Вощений мідний меч",
   "item.copperequipment.copper_pickaxe": "Мідне кайло",
-  "item.copperequipment.copper_axe": "Мідну сокира",
+  "item.copperequipment.copper_axe": "Мідна сокира",
   "item.copperequipment.copper_shovel": "Мідна лопата",
   "item.copperequipment.copper_hoe": "Мідна мотика",
   "item.copperequipment.copper_shears": "Мідні ножиці",
@@ -13,8 +18,8 @@
   "item.copperequipment.copper_horse_armor": "Мідна кінська броня",
 
     "item.copperequipment.waxed_copper_sword": "Вощений мідний меч",
-    "item.copperequipment.waxed_copper_pickaxe": "Вощена мідне кайло",
-    "item.copperequipment.waxed_copper_axe": "Вощена мідну сокира",
+    "item.copperequipment.waxed_copper_pickaxe": "Вощене мідне кайло",
+    "item.copperequipment.waxed_copper_axe": "Вощена мідна сокира",
     "item.copperequipment.waxed_copper_shovel": "Вощена мідна лопата",
     "item.copperequipment.waxed_copper_hoe": "Вощена мідна мотика",
     "item.copperequipment.waxed_copper_shears": "Вощені мідні ножиці",
