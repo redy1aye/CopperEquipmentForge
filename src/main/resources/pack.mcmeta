@@ -1,6 +1,8 @@
 {
     "pack": {
-        "description": "Copper Equipment Mod Resources",
-        "pack_format": 8
+        "description": "copperequipment resources",
+        "pack_format": 9,
+        "forge:resource_pack_format": 9,
+        "forge:data_pack_format": 10
     }
 }
