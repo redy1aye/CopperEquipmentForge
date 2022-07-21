@@ -1,12 +1,49 @@
 {
+  "itemGroup.copperequipment_tab": "铜制装备",
+
+  "item.copperequipment.compressed_copper": "锻压铜块",
+  "item.copperequipment.copper_nugget": "铜粒",
+
+  "item.copperequipment.compressed_waxed_copper": "涂蜡锻压铜块",
+  "item.copperequipment.waxed_copper_nugget": "涂蜡铜粒",
+
   "item.copperequipment.copper_sword": "铜剑",
   "item.copperequipment.copper_pickaxe": "铜镐",
   "item.copperequipment.copper_axe": "铜斧",
   "item.copperequipment.copper_shovel": "铜铲",
   "item.copperequipment.copper_hoe": "铜锄",
+  "item.copperequipment.copper_shears": "铜剪刀",
 
   "item.copperequipment.copper_helmet": "铜头盔",
   "item.copperequipment.copper_chestplate": "铜胸甲",
   "item.copperequipment.copper_leggings": "铜护腿",
-  "item.copperequipment.copper_boots": "铜靴子"
+  "item.copperequipment.copper_boots": "铜靴子",
+  "item.copperequipment.copper_horse_armor": "铜马铠",
+
+  "item.copperequipment.waxed_copper_sword": "涂蜡铜剑",
+  "item.copperequipment.waxed_copper_pickaxe": "涂蜡铜镐",
+  "item.copperequipment.waxed_copper_axe": "涂蜡铜斧",
+  "item.copperequipment.waxed_copper_shovel": "涂蜡铜铲",
+  "item.copperequipment.waxed_copper_hoe": "涂蜡铜锄",
+  "item.copperequipment.waxed_copper_shears": "涂蜡铜剪刀",
+
+  "item.copperequipment.waxed_copper_helmet": "涂蜡铜头盔",
+  "item.copperequipment.waxed_copper_chestplate": "涂蜡铜胸甲",
+  "item.copperequipment.waxed_copper_leggings": "涂蜡铜护腿",
+  "item.copperequipment.waxed_copper_boots": "涂蜡铜靴子",
+  "item.copperequipment.waxed_copper_horse_armor": "涂蜡铜马铠",
+
+  "block.copperequipment.copper_button": "铜按钮",
+  "block.copperequipment.copper_pressure_plate": "铜压力板",
+  "block.copperequipment.waxed_copper_button": "涂蜡铜按钮",
+  "block.copperequipment.waxed_copper_pressure_plate": "涂蜡铜压力板",
+
+  "advancements.story.more_tables.title": "整点工作台！",
+  "advancements.story.more_tables.description": "连接4块木板和2块铁锭做一个锻造台",
+
+  "advancements.story.copper_connecting.title": "铜器时代",
+  "advancements.story.copper_connecting.description": "往锻造台里塞两块铜锭",
+
+  "advancements.story.copper_tool.title": "万事俱备！",
+  "advancements.story.copper_tool.description": "使用锻压铜块制作工具"
 }
