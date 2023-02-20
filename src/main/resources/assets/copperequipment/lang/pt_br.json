@@ -4,7 +4,7 @@
   "item.copperequipment.copper_axe": "Machado de cobre",
   "item.copperequipment.copper_shovel": "Pá de cobre",
   "item.copperequipment.copper_hoe": "Enxada de cobre",
-  "item.copperequipment.copper_shears": "Tesouras de cobre",
+  "item.copperequipment.copper_shears": "Tesoura de cobre",
 
   "item.copperequipment.copper_helmet": "Capacete de cobre",
   "item.copperequipment.copper_chestplate": "Peitoral de cobre",
@@ -21,9 +21,9 @@
 
     "item.copperequipment.waxed_copper_helmet": "Capacete de cobre encerado",
     "item.copperequipment.waxed_copper_chestplate": "Peitoral de cobre encerado",
-    "item.copperequipment.waxed_copper_leggings": "Perneiras de cobre encerado",
+    "item.copperequipment.waxed_copper_leggings": "Calças de cobre encerado",
     "item.copperequipment.waxed_copper_boots": "Botas de cobre encerado",
-    "item.copperequipment.waxed_copper_horse_armor": "Armadura para cavalos de cobre encerado",
+    "item.copperequipment.waxed_copper_horse_armor": "Armadura de cobre encerado para cavalos",
 
 
   "block.copperequipment.copper_button": "Botão de cobre",
