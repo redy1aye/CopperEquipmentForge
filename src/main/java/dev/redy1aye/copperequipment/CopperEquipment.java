@@ -1,5 +1,8 @@
 package dev.redy1aye.copperequipment;
 
+import dev.redy1aye.copperequipment.CopperEquipmentCreativeTab;
+import dev.redy1aye.copperequipment.CopperBlocks;
+import dev.redy1aye.copperequipment.Items;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -14,11 +17,13 @@ public class CopperEquipment {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String MOD_ID = "copperequipment";
 
-    public CopperEquipment() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+    public CopperEquipment(FMLJavaModLoadingContext ctx) {
+        IEventBus modEventBus = ctx.getModEventBus();
 
-        Items.ITEMS.register(bus);
-        Blocks.BLOCKS.register(bus);
+        CopperEquipmentCreativeTab.register(modEventBus);
+
+        Items.ITEMS.register(modEventBus);
+        CopperBlocks.BLOCKS.register(modEventBus);
 
         // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Configs.SPEC, "copperequipment.toml");
 
