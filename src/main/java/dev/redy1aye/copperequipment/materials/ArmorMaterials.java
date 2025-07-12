@@ -1,12 +1,11 @@
 package dev.redy1aye.copperequipment.materials;
 
 import java.util.function.Supplier;
-
 import dev.redy1aye.copperequipment.Items;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 
@@ -29,34 +28,54 @@ public enum ArmorMaterials implements ArmorMaterial {
         this.repairIngredient = new LazyLoadedValue<>(p_40481_);
     }
 
-    public int getDurabilityForSlot(EquipmentSlot p_40484_) {
-        return durability[p_40484_.getIndex()] + this.durabilityMultiplier;
+    @Override
+    public int getDurabilityForType(ArmorItem.Type type) {
+        int index = switch (type) {
+            case HELMET -> 0;
+            case CHESTPLATE -> 1;
+            case LEGGINGS -> 2;
+            case BOOTS -> 3;
+        };
+        return durability[index] + this.durabilityMultiplier;
     }
 
-    public int getDefenseForSlot(EquipmentSlot p_40487_) {
-        return this.slotProtections[p_40487_.getIndex()];
+    @Override
+    public int getDefenseForType(ArmorItem.Type type) {
+        int index = switch (type) {
+            case HELMET -> 0;
+            case CHESTPLATE -> 1;
+            case LEGGINGS -> 2;
+            case BOOTS -> 3;
+        };
+        return this.slotProtections[index];
     }
 
+    @Override
     public int getEnchantmentValue() {
         return this.enchantmentValue;
     }
 
+    @Override
     public SoundEvent getEquipSound() {
         return SoundEvents.ARMOR_EQUIP_IRON;
     }
 
+    @Override
     public Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
     }
 
+    @Override
     public String getName() {
         return this.name;
     }
 
+    @Override
     public float getToughness() {
         return 0;
     }
 
+    @Override
     public float getKnockbackResistance() {
         return 0;
     }
