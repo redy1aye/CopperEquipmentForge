@@ -19,11 +19,11 @@ public class Tags {
         public static final TagKey<Item> INGOTS_WAXED_COPPER = createForgeTag("ingots/waxed_copper");
 
         private static TagKey<Item> createTag(String name) {
-            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(CopperEquipment.MOD_ID, name));
+            return ItemTags.create(new ResourceLocation(CopperEquipment.MOD_ID, name));
         }
 
         private static TagKey<Item> createForgeTag(String name) {
-            return ItemTags.create(ResourceLocation.fromNamespaceAndPath("forge", name));
+            return ItemTags.create(new ResourceLocation("forge", name));
         }
     }
 }

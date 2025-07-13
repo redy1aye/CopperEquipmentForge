@@ -17,16 +17,14 @@ public class CopperEquipment {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String MOD_ID = "copperequipment";
 
-    public CopperEquipment(FMLJavaModLoadingContext ctx) {
-        IEventBus modEventBus = ctx.getModEventBus();
-
-        CopperEquipmentCreativeTab.register(modEventBus);
+    public CopperEquipment() {
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         Items.ITEMS.register(modEventBus);
         CopperBlocks.BLOCKS.register(modEventBus);
 
         // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Configs.SPEC, "copperequipment.toml");
 
-        MinecraftForge.EVENT_BUS.register(this);
+        CopperEquipmentCreativeTab.register(modEventBus);
     }
 }
