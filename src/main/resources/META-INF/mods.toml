@@ -1,10 +1,10 @@
 modLoader="javafml"
-loaderVersion="[47,)"
+loaderVersion="[49,)"
 license="MIT"
 
 [[mods]]
 modId="copperequipment"
-version="1.3"
+version="1.3.0"
 displayName="Copper Equipment"
 logoFile="copperequipment-forge-logo.png"
 authors="Redy1aye"
@@ -13,13 +13,13 @@ description="Enjoy your copper armor and tools!"
 [[dependencies.copperequipment]]
     modId="forge"
     mandatory=true
-    versionRange="[47,)"
+    versionRange="[49,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.copperequipment]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20,1.21)"
+    versionRange="[1.20.4]"
     ordering="NONE"
     side="BOTH"

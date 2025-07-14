@@ -2,11 +2,12 @@ package dev.redy1aye.copperequipment;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -18,12 +19,24 @@ public class CopperBlocks {
     public static final DeferredRegister<Block> BLOCKS = 
             DeferredRegister.create(ForgeRegistries.BLOCKS, CopperEquipment.MOD_ID);
 	
-	public static final RegistryObject<Block> COPPER_BUTTON = registerBlock("copper_button",
-            () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BUTTON).sound(SoundType.COPPER),
-                    BlockSetType.IRON, 10, true));
+    public static final RegistryObject<Block> COPPER_BUTTON = registerBlock("copper_button",
+            () -> new ButtonBlock(BlockSetType.COPPER, 10, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL)
+                    .strength(0.5F)
+                    .sound(SoundType.COPPER)
+                    .noCollission()
+                    .pushReaction(PushReaction.DESTROY)));
+    
     public static final RegistryObject<Block> COPPER_PRESSURE_PLATE = registerBlock("copper_pressure_plate",
-            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK).sound(SoundType.COPPER),
-                    BlockSetType.IRON));
+            () -> new PressurePlateBlock(BlockSetType.COPPER, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.METAL)
+                    .forceSolidOn()
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
+                    .noCollission()
+                    .strength(0.5F)
+                    .sound(SoundType.COPPER)
+                    .pushReaction(PushReaction.DESTROY)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
