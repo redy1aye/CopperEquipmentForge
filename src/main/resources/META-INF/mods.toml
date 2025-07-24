@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[49,)"
+loaderVersion="[50,)"
 license="MIT"
 
 [[mods]]
@@ -13,13 +13,13 @@ description="Enjoy your copper armor and tools!"
 [[dependencies.copperequipment]]
     modId="forge"
     mandatory=true
-    versionRange="[49,)"
+    versionRange="[50,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.copperequipment]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20.4]"
+    versionRange="[1.20.6]"
     ordering="NONE"
     side="BOTH"

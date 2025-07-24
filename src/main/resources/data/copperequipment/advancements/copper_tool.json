@@ -1,8 +1,10 @@
 {
   "display": {
     "icon": {
-      "item": "copperequipment:copper_sword",
-      "nbt": "{Damage:0}"
+      "id": "copperequipment:copper_sword",
+      "components": {
+        "minecraft:damage": 0
+      }
     },
     "title": {
       "translate": "advancements.story.copper_tool.title"
@@ -22,9 +24,10 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "copperequipment:copper_sword"
-            ]
+            "item": "copperequipment:copper_sword",
+            "components": {
+              "minecraft:damage": 0
+            }
           }
         ]
       }
@@ -34,9 +37,10 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "copperequipment:copper_pickaxe"
-            ]
+            "item": "copperequipment:copper_pickaxe",
+            "components": {
+              "minecraft:damage": 0
+            }
           }
         ]
       }
@@ -46,9 +50,10 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "copperequipment:copper_axe"
-            ]
+            "item": "copperequipment:copper_axe",
+            "components": {
+              "minecraft:damage": 0
+            }
           }
         ]
       }
@@ -58,9 +63,10 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "copperequipment:copper_shovel"
-            ]
+            "item": "copperequipment:copper_shovel",
+            "components": {
+              "minecraft:damage": 0
+            }
           }
         ]
       }
@@ -70,9 +76,10 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "copperequipment:copper_hoe"
-            ]
+            "item": "copperequipment:copper_hoe",
+            "components": {
+              "minecraft:damage": 0
+            }
           }
         ]
       }
@@ -82,9 +89,10 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "copperequipment:copper_shears"
-            ]
+            "item": "copperequipment:copper_shears",
+            "components": {
+              "minecraft:damage": 0
+            }
           }
         ]
       }

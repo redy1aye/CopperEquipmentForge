@@ -2,6 +2,7 @@ package dev.redy1aye.copperequipment;
 
 import dev.redy1aye.copperequipment.CopperEquipmentCreativeTab;
 import dev.redy1aye.copperequipment.CopperBlocks;
+import dev.redy1aye.copperequipment.materials.ArmorMaterials;
 import dev.redy1aye.copperequipment.Items;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
@@ -19,12 +20,13 @@ public class CopperEquipment {
 
     public CopperEquipment() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
         Items.ITEMS.register(modEventBus);
         CopperBlocks.BLOCKS.register(modEventBus);
+        ArmorMaterials.ARMORS.register(modEventBus);
+        CopperEquipmentCreativeTab.register(modEventBus);
 
         // ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Configs.SPEC, "copperequipment.toml");
 
-        CopperEquipmentCreativeTab.register(modEventBus);
+        MinecraftForge.EVENT_BUS.register(this);
     }
 }

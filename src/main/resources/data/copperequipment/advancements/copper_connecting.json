@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "copperequipment:compressed_copper"
+      "id": "copperequipment:compressed_copper"
     },
     "title": {
       "translate": "advancements.story.copper_connecting.title"

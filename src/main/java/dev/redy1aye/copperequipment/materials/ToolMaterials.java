@@ -1,51 +1,80 @@
 package dev.redy1aye.copperequipment.materials;
 
 import dev.redy1aye.copperequipment.Items;
-import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import java.util.function.Supplier;
-
 public enum ToolMaterials implements Tier {
-    COPPER(2, 120, 6, 17, () -> Ingredient.of(Items.COMPRESSED_COPPER.get())),
-    WAXED_COPPER(2, 420, 4, 17, () -> Ingredient.of(Items.COMPRESSED_WAXED_COPPER.get()));
+    COPPER(250, 6.5F, 2.5F, 2, 14, Ingredients.COPPER),
+    WAXED_COPPER(250, 6.5F, 2.5F, 2, 14, Ingredients.WAXED_COPPER);
 
-    private final int miningLevel;
-    private final int durability;
-    private final float miningSpeed;
-    private final int enchantability;
-    private final LazyLoadedValue<Ingredient> repairIngredient;
+    private final int uses;
+    private final float speed;
+    private final float attackDamageBonus;
+    private final int level;
+    private final int enchantmentValue;
+    private final Ingredient repairIngredient;
 
-    ToolMaterials(int miningLevel, int durability, float miningSpeed, int enchantability, Supplier<Ingredient> repairIngredient) {
-        this.miningLevel = miningLevel;
-        this.durability = durability;
-        this.miningSpeed = miningSpeed;
-        this.enchantability = enchantability;
-        this.repairIngredient = new LazyLoadedValue<>(repairIngredient);
+    ToolMaterials(int uses,
+                  float speed,
+                  float attackDamageBonus,
+                  int level,
+                  int enchantmentValue,
+                  Ingredients repairType)
+    {
+        this.uses = uses;
+        this.speed = speed;
+        this.attackDamageBonus = attackDamageBonus;
+        this.level = level;
+        this.enchantmentValue = enchantmentValue;
+        this.repairIngredient = repairType.get();
     }
 
+    @Override
     public int getUses() {
-        return this.durability;
+        return uses;
     }
 
+    @Override
     public float getSpeed() {
-        return this.miningSpeed;
+        return speed;
     }
 
+    @Override
     public float getAttackDamageBonus() {
-        return -1;
+        return attackDamageBonus;
     }
 
-    public int getLevel() {
-        return this.miningLevel;
-    }
-
+    @Override
     public int getEnchantmentValue() {
-        return this.enchantability;
+        return enchantmentValue;
     }
 
+    @Override
     public Ingredient getRepairIngredient() {
-        return this.repairIngredient.get();
+        return repairIngredient;
+    }
+
+    @Override
+    public TagKey<Block> getIncorrectBlocksForDrops() {
+        return BlockTags.MINEABLE_WITH_PICKAXE;
+    }
+
+    public enum Ingredients {
+        COPPER(() -> Ingredient.of(Items.COPPER_NUGGET.get())),
+        WAXED_COPPER(() -> Ingredient.of(Items.WAXED_COPPER_NUGGET.get()));
+
+        private final java.util.function.Supplier<Ingredient> supplier;
+
+        Ingredients(java.util.function.Supplier<Ingredient> supplier) {
+            this.supplier = supplier;
+        }
+
+        public Ingredient get() {
+            return supplier.get();
+        }
     }
 }
