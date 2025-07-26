@@ -1,141 +1,118 @@
-import groovy.json.JsonOutput
-import groovy.json.JsonSlurper
-
 plugins {
-    id 'java'
+    id 'java-library'
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.93'
+    id 'net.neoforged.gradle.userdev' version '7.0.190'
 }
 
 tasks.named('wrapper', Wrapper).configure {
     gradleVersion = '8.14.3'
+    distributionType = Wrapper.DistributionType.BIN
 }
 
-archivesBaseName = project.archives_base_name
-version = "NeoForge-${minecraft_version}-${mod_version}"
-group = project.maven_group
+version = mod_version
+group = 'dev.redy1aye.copperequipment'
 
-ext {
-    versionProperties = ["mod_version": mod_version, "mc_version": minecraft_version_range, "neo_version": neo_version_range, "loader_version": loader_version_range]
-    jsonPatterns = ["**/*.json", "**/*.mcmeta"]
+base {
+    archivesName = 'CopperEquipment-NeoForge-' + minecraft_version
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of("${java_version}"))
-        vendor.set(JvmVendorSpec.JETBRAINS)
-    }
-}
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 
-    // This line is optional. Access Transformers are automatically detected
-    // accessTransformers = project.files('src/main/resources/META-INF/accesstransformer.cfg')
-
-// Mojang ships Java 17 to end users in 1.20.4, so mods should target Java 17.
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
 runs {
-    configureEach { net.neoforged.gradle.dsl.common.runs.run.Run run ->
-        boolean supportsGameTests = !run.isDataGenerator.get()
-        if (supportsGameTests) {
-            run.systemProperty('neoforge.enabledGameTestNamespaces', 'copperequipment')
+    configureEach {
+        systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'forge.logging.console.level', 'debug'
+        modSource project.sourceSets.main
+        if (project.hasProperty('forge_force_ansi')) {
+            jvmArgument "-Dterminal.ansi=${project.property('forge_force_ansi')}"
         }
-        if (run.project.hasProperty('forge_force_ansi')) {
-            run.jvmArgument("-Dterminal.ansi=${run.project.property('forge_force_ansi')}")
-        }
-        run.modSource((SourceSet) sourceSets.main)
-        if (run.project.javaToolchains.launcherFor(java.toolchain).map { it.metadata.vendor }.getOrElse("").contains("JetBrains")) {
-            run.jvmArgument("-XX:+AllowEnhancedClassRedefinition")
+        if (project.javaToolchains.launcherFor(java.toolchain).map { it.metadata.vendor }.getOrElse("").contains("JetBrains")) {
+            jvmArgument "-XX:+AllowEnhancedClassRedefinition"
         }
     }
     client {
+        runType 'client'
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'copperequipment'
         if (project.hasProperty('mc_uuid')) {
-            programArguments('--uuid', (String) project.property('mc_uuid'))
+            arguments '--uuid', project.property('mc_uuid')
         }
         if (project.hasProperty('mc_username')) {
-            programArguments('--username', (String) project.property('mc_username'))
+            arguments '--username', project.property('mc_username')
         }
         if (project.hasProperty('mc_accessToken')) {
-            programArguments('--accessToken', (String) project.property('mc_accessToken'))
+            arguments '--accessToken', project.property('mc_accessToken')
         }
     }
     server {
+        runType 'server'
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'copperequipment'
+        arguments '--nogui'
     }
     gameTestServer {
+        runType 'gameTestServer'
+        systemProperty 'neoforge.enabledGameTestNamespaces', 'copperequipment'
     }
     data {
-        programArguments('--all', '--output', project.file('src/generated/resources/').getAbsolutePath(),
-                '--mod', 'copperequipment', '--existing', project.file('src/main/resources/').getAbsolutePath())
+        runType 'data'
+        arguments.addAll '--mod', 'copperequipment', '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
     }
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
+}
+
 repositories {
+    mavenCentral()
+    maven { url 'https://maven.neoforged.net/releases' }
 }
 
 dependencies {
-    implementation "net.neoforged:neoforge:${neo_version}"
+    implementation "net.neoforged:neoforge:20.6.137"
 }
 
-def replaceResources = tasks.register("replaceResources", Copy) {
-    it.outputs.upToDateWhen { false }
-    def modsToml = copySpec {
-        from(sourceSets.main.resources) {
-            include "META-INF/mods.toml"
-            expand versionProperties
-        }
-    }
-    it.with modsToml
-    it.into layout.buildDirectory.dir('resources/main/')
-    //If IntelliJ's output dir exists, copy it there as well
-    if (new File("$rootDir/out/production/").exists()) {
-        copy {
-            with modsToml
-            into "$rootDir/out/production/"
-        }
-    }
-    if (new File("$rootDir/bin/main/").exists()) {
-        copy {
-            with modsToml
-            into "$rootDir/bin/main/"
-        }
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [
+        minecraft_version: minecraft_version,
+        minecraft_version_range: minecraft_version_range,
+        neo_version: neo_version,
+        loader_version_range: loader_version_range,
+        mod_id: 'copperequipment',
+        mod_name: 'Copper Equipment',
+        mod_license: 'MIT',
+        mod_version: mod_version,
+        mod_authors: 'redy1aye',
+        mod_description: 'Enjoy your copper armor and tools!'
+    ]
+    inputs.properties replaceProperties
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties
     }
 }
-
-processResources {
-    duplicatesStrategy(DuplicatesStrategy.FAIL)
-    exclude('META-INF/mods.toml')
-    configure { finalizedBy(replaceResources) }
-    doLast {
-        fileTree(dir: getOutputs().getFiles().getAsPath(), includes: jsonPatterns).each {
-            File file -> file.setText(JsonOutput.toJson(new JsonSlurper().parse(file)))
-        }
-    }
-}
-
-classes.configure { dependsOn(replaceResources) }
 
 tasks.named('jar', Jar).configure {
-    duplicatesStrategy(DuplicatesStrategy.FAIL)
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
     manifest.attributes([
-            'Specification-Title': 'copperequipment',
-            'Specification-Vendor': 'copperequipmentsareus',
-            'Specification-Version': '1',
-            'Implementation-Title': project.name,
-            'Implementation-Version': project.jar.archiveVersion,
-            'Implementation-Vendor': 'copperequipmentsareus',
-            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        'Specification-Title': 'copperequipment',
+        'Specification-Vendor': 'redy1aye',
+        'Specification-Version': '1',
+        'Implementation-Title': project.name,
+        'Implementation-Version': project.jar.archiveVersion,
+        'Implementation-Vendor': 'redy1aye',
+        'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
     ])
 }
 
 publishing {
-    publications { PublicationContainer publicationContainer ->
-        publicationContainer.register("mavenJava", MavenPublication) { MavenPublication publication ->
-            artifact jar
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
         }
     }
     repositories {
@@ -145,15 +122,13 @@ publishing {
     }
 }
 
-tasks.withType(JavaCompile).configureEach({
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
-    options.compilerArgs.addAll(["-Xmaxerrs", "100000"])
-})
+}
 
-tasks.withType(Javadoc).configureEach({
-    options.tags = [
-            'apiNote:a:<em>API Note:</em>',
-            'implSpec:a:<em>Implementation Requirements:</em>',
-            'implNote:a:<em>Implementation Note:</em>'
-    ]
-})
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

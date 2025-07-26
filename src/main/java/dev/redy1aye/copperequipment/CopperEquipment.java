@@ -1,6 +1,7 @@
 package dev.redy1aye.copperequipment;
 
 import com.mojang.logging.LogUtils;
+import dev.redy1aye.copperequipment.materials.ArmorMaterials;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ public class CopperEquipment {
     public CopperEquipment(IEventBus modEventBus) {
         Items.ITEMS.register(modEventBus);
         CopperBlocks.BLOCKS.register(modEventBus);
+        ArmorMaterials.ARMORS.register(modEventBus);
         CopperEquipmentCreativeTab.CREATIVE_MODE_TABS.register(modEventBus);
         LOGGER.info("Initializing Copper Equipment");
     }

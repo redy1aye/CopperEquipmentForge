@@ -11,7 +11,7 @@
         }
     },
   "result": {
-    "item": "copperequipment:copper_chestplate",
+    "id": "copperequipment:copper_chestplate",
     "count": 1
   }
 }
