@@ -45,22 +45,22 @@ public class Items {
             new ShearsItem(new Item.Properties().stacksTo(1).durability(ToolMaterials.WAXED_COPPER.getUses())));
 
     public static final DeferredHolder<Item, Item> COPPER_HELMET = ITEMS.register("copper_helmet", () ->
-            new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.HELMET, new Item.Properties()));
+            new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, Item> COPPER_CHESTPLATE = ITEMS.register("copper_chestplate", () ->
-            new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.CHESTPLATE, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, Item> COPPER_LEGGINGS = ITEMS.register("copper_leggings", () ->
-            new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.LEGGINGS, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, Item> COPPER_BOOTS = ITEMS.register("copper_boots", () ->
-            new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.BOOTS, new Item.Properties()));
+            new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1)));
 
     public static final DeferredHolder<Item, Item> WAXED_COPPER_HELMET = ITEMS.register("waxed_copper_helmet", () ->
-            new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.HELMET, new Item.Properties()));
+            new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, Item> WAXED_COPPER_CHESTPLATE = ITEMS.register("waxed_copper_chestplate", () ->
-            new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+            new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.CHESTPLATE, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, Item> WAXED_COPPER_LEGGINGS = ITEMS.register("waxed_copper_leggings", () ->
-            new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+            new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.LEGGINGS, new Item.Properties().stacksTo(1)));
     public static final DeferredHolder<Item, Item> WAXED_COPPER_BOOTS = ITEMS.register("waxed_copper_boots", () ->
-            new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.BOOTS, new Item.Properties()));
+            new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1)));
 
     public static final DeferredHolder<Item, Item> COPPER_HORSE_ARMOR = ITEMS.register("copper_horse_armor", () ->
             new AnimalArmorItem(ArmorMaterials.COPPER, AnimalArmorItem.BodyType.EQUESTRIAN, false, new Item.Properties().stacksTo(1)));
