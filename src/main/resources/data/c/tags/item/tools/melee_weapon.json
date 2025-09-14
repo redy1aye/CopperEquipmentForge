@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "copperequipment:copper_sword",
+    "copperequipment:copper_axe",
+    "copperequipment:waxed_copper_sword",
+    "copperequipment:waxed_copper_axe"
+  ]
+}
