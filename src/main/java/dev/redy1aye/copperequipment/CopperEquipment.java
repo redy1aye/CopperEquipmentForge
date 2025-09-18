@@ -3,7 +3,9 @@ package dev.redy1aye.copperequipment;
 import com.mojang.logging.LogUtils;
 import dev.redy1aye.copperequipment.materials.ArmorMaterials;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import org.slf4j.Logger;
 
 @Mod(CopperEquipment.MOD_ID)
@@ -11,7 +13,8 @@ public class CopperEquipment {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String MOD_ID = "copperequipment";
 
-    public CopperEquipment(IEventBus modEventBus) {
+    public CopperEquipment(IEventBus modEventBus, ModContainer container) {
+        container.registerConfig(ModConfig.Type.STARTUP, CopperEquipmentConfig.SPEC);
         Items.ITEMS.register(modEventBus);
         CopperBlocks.BLOCKS.register(modEventBus);
         ArmorMaterials.ARMORS.register(modEventBus);

@@ -17,11 +17,11 @@ public class CopperBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.createBlocks(CopperEquipment.MOD_ID);
 
     public static final DeferredHolder<Block, Block> COPPER_BUTTON = registerBlock("copper_button", () ->
-            new ButtonBlock(BlockSetType.IRON, 10, BlockBehaviour.Properties.of()
+            new ButtonBlock(BlockSetType.COPPER, 10, BlockBehaviour.Properties.of()
                     .strength(0.5f)
                     .mapColor(MapColor.METAL)));
     public static final DeferredHolder<Block, Block> COPPER_PRESSURE_PLATE = registerBlock("copper_pressure_plate", () ->
-            new PressurePlateBlock(BlockSetType.IRON, BlockBehaviour.Properties.of()
+            new PressurePlateBlock(BlockSetType.COPPER, BlockBehaviour.Properties.of()
                     .strength(0.5f)
                     .mapColor(MapColor.METAL)));
 
