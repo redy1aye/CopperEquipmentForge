@@ -58,23 +58,23 @@ public class Items {
 
     // --- Armor: Copper ---
     public static final DeferredItem<ArmorItem> COPPER_HELMET = ITEMS.register("copper_helmet",
-            () -> new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1)));
+            () -> new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1).durability(ArmorItem.Type.HELMET.getDurability(15))));
     public static final DeferredItem<ArmorItem> COPPER_CHESTPLATE = ITEMS.register("copper_chestplate",
-            () -> new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.CHESTPLATE, new Item.Properties().stacksTo(1)));
+            () -> new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.CHESTPLATE, new Item.Properties().stacksTo(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(15))));
     public static final DeferredItem<ArmorItem> COPPER_LEGGINGS = ITEMS.register("copper_leggings",
-            () -> new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.LEGGINGS, new Item.Properties().stacksTo(1)));
+            () -> new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.LEGGINGS, new Item.Properties().stacksTo(1).durability(ArmorItem.Type.LEGGINGS.getDurability(15))));
     public static final DeferredItem<ArmorItem> COPPER_BOOTS = ITEMS.register("copper_boots",
-            () -> new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1)));
+            () -> new ArmorItem(ArmorMaterials.COPPER, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1).durability(ArmorItem.Type.BOOTS.getDurability(15))));
 
     // --- Armor: Waxed Copper ---
     public static final DeferredItem<ArmorItem> WAXED_COPPER_HELMET = ITEMS.register("waxed_copper_helmet",
-            () -> new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1)));
+            () -> new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.HELMET, new Item.Properties().stacksTo(1).durability(ArmorItem.Type.HELMET.getDurability(25))));
     public static final DeferredItem<ArmorItem> WAXED_COPPER_CHESTPLATE = ITEMS.register("waxed_copper_chestplate",
-            () -> new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.CHESTPLATE, new Item.Properties().stacksTo(1)));
+            () -> new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.CHESTPLATE, new Item.Properties().stacksTo(1).durability(ArmorItem.Type.CHESTPLATE.getDurability(25))));
     public static final DeferredItem<ArmorItem> WAXED_COPPER_LEGGINGS = ITEMS.register("waxed_copper_leggings",
-            () -> new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.LEGGINGS, new Item.Properties().stacksTo(1)));
+            () -> new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.LEGGINGS, new Item.Properties().stacksTo(1).durability(ArmorItem.Type.LEGGINGS.getDurability(25))));
     public static final DeferredItem<ArmorItem> WAXED_COPPER_BOOTS = ITEMS.register("waxed_copper_boots",
-            () -> new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1)));
+            () -> new ArmorItem(ArmorMaterials.WAXED_COPPER, ArmorItem.Type.BOOTS, new Item.Properties().stacksTo(1).durability(ArmorItem.Type.BOOTS.getDurability(25))));
 
     // --- Horse Armor ---
     public static final DeferredItem<Item> COPPER_HORSE_ARMOR = ITEMS.register("copper_horse_armor",
