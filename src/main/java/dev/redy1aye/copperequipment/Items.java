@@ -81,4 +81,16 @@ public class Items {
             () -> new AnimalArmorItem(ArmorMaterials.COPPER, AnimalArmorItem.BodyType.EQUESTRIAN, false, new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> WAXED_COPPER_HORSE_ARMOR = ITEMS.register("waxed_copper_horse_armor",
             () -> new AnimalArmorItem(ArmorMaterials.WAXED_COPPER, AnimalArmorItem.BodyType.EQUESTRIAN, false, new Item.Properties().stacksTo(1)));
+
+    // --- v1.3.5 New Weapon: Copper Mace (1.21+) ---
+    public static final DeferredItem<MaceItem> COPPER_MACE = ITEMS.register("copper_mace",
+            () -> new MaceItem(ToolMaterials.COPPER, new Item.Properties().stacksTo(1).durability(250)));
+    public static final DeferredItem<BlockItem> COPPER_HEAVY_CORE = ITEMS.register("copper_heavy_core",
+            () -> new BlockItem(CopperBlocks.COPPER_HEAVY_CORE.get(), new Item.Properties()));
+
+    // --- v1.3.5 New Blocks: Compressed Copper & Waxed ---
+    public static final DeferredItem<BlockItem> COMPRESSED_COPPER_BLOCK = ITEMS.register("compressed_copper_block",
+            () -> new BlockItem(CopperBlocks.COMPRESSED_COPPER_BLOCK.get(), new Item.Properties()));
+    public static final DeferredItem<BlockItem> WAXED_COMPRESSED_COPPER_BLOCK = ITEMS.register("waxed_compressed_copper_block",
+            () -> new BlockItem(CopperBlocks.WAXED_COMPRESSED_COPPER_BLOCK.get(), new Item.Properties()));
 }

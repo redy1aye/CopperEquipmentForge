@@ -14,11 +14,8 @@ public class ToolMaterials {
             5.0f,
             2.0f,
             12,
-            () -> Ingredient.of(
-                net.minecraft.world.item.Items.COPPER_INGOT,
-                Items.COPPER_NUGGET.get(),
-                Items.WAXED_COPPER_NUGGET.get()
-            )
+            () -> Ingredient.of(Items.COMPRESSED_COPPER.get())
+
     );
 
     public static final Tier WAXED_COPPER = new SimpleTier(
@@ -27,9 +24,6 @@ public class ToolMaterials {
             4.7f,
             2.0f,
             12,
-            () -> Ingredient.of(
-                net.minecraft.world.item.Items.COPPER_INGOT,
-                Items.WAXED_COPPER_NUGGET.get()
-            )
+            () -> Ingredient.of(Items.COMPRESSED_WAXED_COPPER.get())
     );
 }
