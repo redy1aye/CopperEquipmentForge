@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "copperequipment:compressed_copper_block" },
+    { "item": "minecraft:honeycomb" }
+  ],
+  "result": {
+    "item": "copperequipment:waxed_compressed_copper_block",
+    "count": 1
+  }
+}

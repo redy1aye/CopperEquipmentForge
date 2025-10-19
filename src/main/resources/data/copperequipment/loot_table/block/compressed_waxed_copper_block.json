@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "copperequipment:compressed_waxed_copper_block"
+        }
+      ]
+    }
+  ]
+}

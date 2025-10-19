@@ -19,6 +19,7 @@ public class CopperEquipment {
         CopperBlocks.BLOCKS.register(modEventBus);
         ArmorMaterials.ARMORS.register(modEventBus);
         CopperEquipmentCreativeTab.CREATIVE_MODE_TABS.register(modEventBus);
+	    ModLootModifiers.LOOT_MODIFIERS.register(modEventBus);
         LOGGER.info("Initializing Copper Equipment");
     }
 }
