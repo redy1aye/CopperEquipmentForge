@@ -2,13 +2,13 @@ package dev.redy1aye.copperequipment.materials;
 
 import dev.redy1aye.copperequipment.CopperEquipment;
 import dev.redy1aye.copperequipment.CopperEquipmentConfig;
-import dev.redy1aye.copperequipment.Items;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.tags.ItemTags;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.minecraft.Util;
@@ -30,7 +30,7 @@ public class ArmorMaterials {
         }),
         12,
         SoundEvents.ARMOR_EQUIP_IRON,
-        () -> Ingredient.of(Items.COMPRESSED_COPPER.get()),
+        () -> Ingredient.of(ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "copper_ingots"))),
         List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(CopperEquipment.MOD_ID, "copper"))),
         0.0F,
         0.0F
@@ -46,7 +46,7 @@ public class ArmorMaterials {
         }),
         14,
         SoundEvents.ARMOR_EQUIP_IRON,
-        () -> Ingredient.of(Items.COMPRESSED_WAXED_COPPER.get()),
+        () -> Ingredient.of(ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "copper_ingots"))),
         List.of(new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(CopperEquipment.MOD_ID, "waxed_copper"))),
         0.0F,
         0.0F

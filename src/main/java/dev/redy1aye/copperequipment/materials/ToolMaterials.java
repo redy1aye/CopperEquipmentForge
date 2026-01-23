@@ -1,9 +1,10 @@
 package dev.redy1aye.copperequipment.materials;
 
-import dev.redy1aye.copperequipment.Items;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.common.SimpleTier;
 
 public class ToolMaterials {
@@ -14,11 +15,7 @@ public class ToolMaterials {
             5.0f,
             2.0f,
             12,
-            () -> Ingredient.of(
-                net.minecraft.world.item.Items.COPPER_INGOT,
-                Items.COPPER_NUGGET.get(),
-                Items.WAXED_COPPER_NUGGET.get()
-            )
+            () -> Ingredient.of(ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "copper_ingots")))
     );
 
     public static final Tier WAXED_COPPER = new SimpleTier(
@@ -27,9 +24,6 @@ public class ToolMaterials {
             4.7f,
             2.0f,
             12,
-            () -> Ingredient.of(
-                net.minecraft.world.item.Items.COPPER_INGOT,
-                Items.WAXED_COPPER_NUGGET.get()
-            )
+            () -> Ingredient.of(ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "copper_ingots")))
     );
 }
